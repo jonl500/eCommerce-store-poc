@@ -9,7 +9,7 @@ import io.portfolio.ecommerce.model.Product;
  * the DTO class makes it easier to read and write data to the database.
  */
 
-public class OrederProductDto {
+public class OrderProductDto {
 
     private Product product;
     private int quantity; //TODO: may need to be repalced with Integer class wrapper for null values

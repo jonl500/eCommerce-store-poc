@@ -26,7 +26,8 @@ public class Product {
   public Product() {
   }
 
-    public long getId() {
+  //using the Long wrapper class to allow null values along with type safety
+    public Long getId() {
         return id;
     }
 

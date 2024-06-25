@@ -1,4 +1,5 @@
 package io.portfolio.ecommerce.model;
 
-public class OrderStatus {
+public enum OrderStatus {
+    PAID
 }
