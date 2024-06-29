@@ -3,10 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy-conf.json",
     "build": "ng build",
+    "postbuild": "npm run deploy",
+    "predeploy": "rimraf ../resources/static/ && mkdirp ../resources/static",
+    "deploy": "copyfiles -f dist/frontend/** ../resources/static",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "lint": "nglint",
+    "e2e": "ng e2e",
     "serve:ssr:frontend": "node dist/frontend/server/server.mjs"
   },
   "private": true,
@@ -21,6 +26,7 @@
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.7",
+    "bootstrap": "^5.3.3",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -33,12 +39,15 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "copyfiles": "^2.4.1",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "mkdirp": "^3.0.1",
+    "rimraf": "^5.0.7",
     "typescript": "~5.2.2"
   }
 }
